@@ -182,7 +182,9 @@ async function main(asyncUrl, next)
 		await new Promise(resolve => ffmpeg
 			.setFfmpegPath(ffmpegPath)
 			.input(videoFilePath)
+			.videoCodec('copy')
 			.input(audioFilePath)
+			.audioCodec('copy')
 			.on('progress', function (pro) {
 				progressBar.update(Math.round(pro.percent));
 			})
@@ -192,14 +194,13 @@ async function main(asyncUrl, next)
 
 		// Remove created temporary files
 		await new Promise(resolve => {
-			console.log('Completed save...');
-			
+				
 			FS.unlink(audioFilePath, () => {
-				console.log('Removed audio stream file...')
+				
 			});
 
 			FS.unlink(videoFilePath, () => {
-				console.log('Removed audio stream file...')
+
 				console.log('Finished...')
 
 				resolve();
