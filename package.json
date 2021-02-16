@@ -16,6 +16,9 @@
 	"main": "index.js",
 	"type": "module",
 	"dependencies": {
+		"async": "^3.2.0",
+		"bluebird": "^3.7.2",
+		"cli-progress": "^3.9.0",
 		"ffmpeg-static": "^4.2.7",
 		"fluent-ffmpeg": "^2.1.2",
 		"got": "^11.8.1",
